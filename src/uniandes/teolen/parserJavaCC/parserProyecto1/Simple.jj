@@ -11,7 +11,7 @@ options {
   STATIC = false;
 }
 PARSER_BEGIN(Simple)
-package uniandes.teolen.parserJavaCC.proyecto1;
+package uniandes.teolen.parserJavaCC.parserProyecto1;
 
 import java.util.HashMap; 
 import java.util.Map;
