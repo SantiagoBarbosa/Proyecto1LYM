@@ -9,7 +9,21 @@ public class Simple implements SimpleConstants {
 
 
 String []  names = { "title", "author", "journal", "year","volume","editor", "number",
- "pages", "month","doi", "note","key","publisher","series","address", "edition", "url","howPublished", "type", "chapter", "organization"  };
+ "pages", "month","doi", "note","key","publisher","series","address", "edition", "url","howPublished", "type", "chapter", "organization", "booktitle", "school", "institution"};
+
+int[] articleRequiredFields = { 0,1,2,3,4 };
+int[] bookRequiredFields = { 1,5,0,12,4 }; //Optional to have both 1 and 5 but must have at least one of those two
+int[] bookletRequiredFields = { 0 };
+int[] inbookRequiredFields = { 1,5,19,12,3}; //Optional to have both 1 and 5 but must have at least one of those two. Same for 19 and 12
+int[] conferenceRequiredFields = { 1,0,21,3};
+int[] incollectionRequiredFields = { 1,0,12,3};
+int[] inproceedingsRequiredFields = { 1,0,21,3};
+int[] manualRequiredFields = { 0};
+int[] masterthesisRequiredFields = { 1,0,22,3};
+int[] phdthesisRequiredFields = {0,1,22,3 };
+int[] proceedingsRequiredFields = { 0,3};
+int[] techReportRequiredFields = { 0,1,23,3};
+int[] unpublishedRequiredFields = { 0,1,10};
 
 HashMap<String, Object> map = new HashMap<String, Object>();
 
@@ -17,129 +31,147 @@ HashMap<String, Object> map = new HashMap<String, Object>();
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case TITLE:
       jj_consume_token(TITLE);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[0]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case JOURNAL:
       jj_consume_token(JOURNAL);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[2]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case AUTHOR:
       jj_consume_token(AUTHOR);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[1]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case YEAR:
       jj_consume_token(YEAR);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[3]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case VOLUME:
       jj_consume_token(VOLUME);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[4]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case EDITOR:
       jj_consume_token(EDITOR);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[5]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case NUMBER:
       jj_consume_token(NUMBER);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[6]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case PGS:
       jj_consume_token(PGS);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[7]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case MONTH:
       jj_consume_token(MONTH);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[8]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case DPI:
       jj_consume_token(DPI);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[9]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case NOTE:
       jj_consume_token(NOTE);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[10]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case KEY:
       jj_consume_token(KEY);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[11]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case PUBLISHER:
       jj_consume_token(PUBLISHER);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[12]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case SERIES:
       jj_consume_token(SERIES);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[13]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case ADDRESS:
       jj_consume_token(ADDRESS);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[14]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case EDITION:
       jj_consume_token(EDITION);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[15]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case URL:
       jj_consume_token(URL);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[16]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case HPUBLISH:
       jj_consume_token(HPUBLISH);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[17]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case TYP:
       jj_consume_token(TYP);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[18]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case CHAPTER:
       jj_consume_token(CHAPTER);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[19]);
-      jj_consume_token(32);
+      jj_consume_token(35);
       break;
     case ORGA:
       jj_consume_token(ORGA);
-      jj_consume_token(31);
+      jj_consume_token(34);
       value(names[20]);
-      jj_consume_token(32);
+      jj_consume_token(35);
+      break;
+    case BOOKTITLE:
+      jj_consume_token(BOOKTITLE);
+      jj_consume_token(36);
+      value(names[21]);
+      jj_consume_token(37);
+      break;
+    case SCHOOL:
+      jj_consume_token(SCHOOL);
+      jj_consume_token(36);
+      value(names[22]);
+      jj_consume_token(37);
+      break;
+    case INSTITUTION:
+      jj_consume_token(INSTITUTION);
+      jj_consume_token(36);
+      value(names[23]);
+      jj_consume_token(37);
       break;
     default:
       jj_la1[0] = jj_gen;
@@ -152,33 +184,261 @@ HashMap<String, Object> map = new HashMap<String, Object>();
   Token token;
   Token token2;
     token = jj_consume_token(BIBTYPE);
-    jj_consume_token(33);
+    jj_consume_token(38);
     token2 = jj_consume_token(NAME);
-    jj_consume_token(34);
+    jj_consume_token(39);
     exp();
     label_1:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case 34:
+      case 39:
         ;
         break;
       default:
         jj_la1[1] = jj_gen;
         break label_1;
       }
-      jj_consume_token(34);
+      jj_consume_token(39);
       exp();
     }
-    jj_consume_token(35);
+    jj_consume_token(40);
     jj_consume_token(END);
+if(token.toString().equals("book"))
+{
+  for(int i: bookRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for book:");
+          for(int in: bookRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for book: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("booklet"))
+{
+        for(int i: bookletRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for booklet:");
+          for(int in: bookletRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for booklet: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("article"))
+{
+        for(int i: articleRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for article:");
+          for(int in: articleRequiredFields)
+                {
+                  if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for article: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("inbook"))
+{
+        for(int i: inbookRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for inbook:");
+          for(int in: inbookRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for inbook: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("conference"))
+{
+        for(int i: inbookRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for inbook:");
+          for(int in: inbookRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for inbook: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("incollection"))
+{
+        for(int i: inbookRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for inbook:");
+          for(int in: inbookRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for inbook: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("inproceedings"))
+{
+  for(int i: inproceedingsRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for inproceedings:");
+          for(int in: inproceedingskRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for inproceedings: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("manual"))
+{
+  for(int i: manualRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for manualk:");
+          for(int in: manualRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for manual: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("masterthesis"))
+{
+        for(int i: masterthesisRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for masterthesis:");
+          for(int in: masterthesisRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for masterthesis: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("phdthesis"))
+{
+        for(int i: phdthesisRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for phdthesis:");
+          for(int in: phdthesisRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for phdthesis: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("proceedings"))
+{
+        for(int i: proceedingsRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for proceedings:");
+          for(int in: proceedingsRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for proceedings: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("techreprot"))
+{
+        for(int i: techreprotRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for techreprot:");
+          for(int in: techreprotRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for techreprot: info in console" );}
+
+        }
+ }
+}
+else if(token.toString().equals("unpublished"))
+{
+        for(int i: unpublishedRequiredFields)
+  {
+        if(!map.containsKey(names[i]))
+        {
+          System.out.println("Entry does not have all the required fields for unpublished:");
+          for(int in: unpublishedRequiredFields)
+                {
+                         if(!map.containsKey(names[in]))
+                        System.out.println(names[in] + " missing.");
+                }
+                {if (true) throw new Error("Entry does not have all the required fields for unpublished: info in console" );}
+
+        }
+ }
+}
+
 System.out.println("analizando el :  "+ token.image + " con ID: "+token2.image);
 System.out.println("number of  properties set:  "+ map.size());
+
+
+
 for (int i = 0; i < 1000; i++) {
   if  (map.containsKey(names[i]))
         System.out.println(names[i] +  "=" + (map.get(names[i])).toString());
   else
     System.out.println(names[i] + ":  No value assigned !!!!" );
 }
+
+
+
 {if (true) return map;}
     throw new Error("Missing return statement in function");
   }
@@ -230,10 +490,10 @@ for (int i = 0; i < 1000; i++) {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0xfffff80,0x0,0x60000000,};
+      jj_la1_0 = new int[] {0x7fffff80,0x0,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0x4,0x0,};
+      jj_la1_1 = new int[] {0x0,0x80,0x3,};
    }
 
   /** Constructor with InputStream. */
@@ -350,7 +610,7 @@ for (int i = 0; i < 1000; i++) {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[36];
+    boolean[] la1tokens = new boolean[41];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -367,7 +627,7 @@ for (int i = 0; i < 1000; i++) {
         }
       }
     }
-    for (int i = 0; i < 36; i++) {
+    for (int i = 0; i < 41; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

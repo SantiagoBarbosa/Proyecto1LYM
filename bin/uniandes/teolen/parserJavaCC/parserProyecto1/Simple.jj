@@ -21,7 +21,21 @@ public class Simple {
 
 
 String []  names = { "title", "author", "journal", "year","volume","editor", "number",
- "pages", "month","doi", "note","key","publisher","series","address", "edition", "url","howPublished", "type", "chapter", "organization"  };
+ "pages", "month","doi", "note","key","publisher","series","address", "edition", "url","howPublished", "type", "chapter", "organization", "booktitle", "school", "institution"};
+
+int[] articleRequiredFields = { 0,1,2,3,4 };
+int[] bookRequiredFields = { 1,5,0,12,4 }; //Optional to have both 1 and 5 but must have at least one of those two
+int[] bookletRequiredFields = { 0 };
+int[] inbookRequiredFields = { 1,5,19,12,3}; //Optional to have both 1 and 5 but must have at least one of those two. Same for 19 and 12
+int[] conferenceRequiredFields = { 1,0,21,3};
+int[] incollectionRequiredFields = { 1,0,12,3};
+int[] inproceedingsRequiredFields = { 1,0,21,3};
+int[] manualRequiredFields = { 0};
+int[] masterthesisRequiredFields = { 1,0,22,3};
+int[] phdthesisRequiredFields = {0,1,22,3 };
+int[] proceedingsRequiredFields = { 0,3};
+int[] techReportRequiredFields = { 0,1,23,3};
+int[] unpublishedRequiredFields = { 0,1,10};
 
 HashMap<String, Object> map = new HashMap<String, Object>();
 
@@ -61,7 +75,7 @@ TOKEN : /* OPERATORS */
  | < PGS:("pages") > |< MONTH:("month") >|< DPI:("doi") >|< NOTE: ("note") >|< KEY:("key") >
  |< PUBLISHER:("publisher") >|< SERIES:("series") >|< ADDRESS:("address") >
  |< EDITION:(  "edition") >|< URL:( "url") >|< HPUBLISH:("howPublished") >
- |< TYP: ("type") >|< CHAPTER:  ("chapter") >|< ORGA:( "organization") >
+ |< TYP: ("type") >|< CHAPTER:  ("chapter") >|< ORGA:( "organization") >|< BOOKTITLE: ("booktitle") > | < SCHOOL: ("school") > | <  INSTITUTION: ("institution")>
 	|  < #DIGIT: "0" | "1" | "2"| "3" | "4" | "5" |  "6" | "7" | "8" |"9" >
 	|   < INT: ( <DIGIT> )( <DIGIT> )* >
 	|   < NAME: ["a"-"z"] (["a"-"z"] | <DIGIT> )* >
@@ -88,7 +102,14 @@ void exp() throws Error:
 |< SERIES >"={"value(names[13])"}"
 |< ADDRESS >"={"value(names[14])"}"
 | < EDITION >"={"value(names[15])"}"
- |< URL >"={"value(names[16])"}" |< HPUBLISH >"={"value(names[17])"}" |< TYP > "={"value(names[18])"}"| < CHAPTER >"={"value(names[19])"}" |< ORGA >"={"value(names[20])"}" 
+ |< URL >"={"value(names[16])"}"
+ |< HPUBLISH >"={"value(names[17])"}"
+ |< TYP > "={"value(names[18])"}"
+ | < CHAPTER >"={"value(names[19])"}"
+ |< ORGA >"={"value(names[20])"}"
+ | < BOOKTITLE > "= { "value(names[21])" }"
+ | < SCHOOL > "= { "value(names[22])" }"
+ | < INSTITUTION >"= { "value(names[23])" }"
   
 }
 
@@ -105,15 +126,244 @@ HashMap<String, Object> simple()  throws  Error:
  
    
 {
+
+
+if(token.toString().equals("book"))
+{
+  for(int i: bookRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for book:");
+	  for(int in: bookRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for book: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("booklet"))
+{
+	for(int i: bookletRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for booklet:");
+	  for(int in: bookletRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for booklet: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("article"))
+{
+	for(int i: articleRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for article:");
+	  for(int in: articleRequiredFields)
+		{
+		  if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for article: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("inbook"))
+{
+	for(int i: inbookRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for inbook:");
+	  for(int in: inbookRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for inbook: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("conference"))
+{
+	for(int i: inbookRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for inbook:");
+	  for(int in: inbookRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for inbook: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("incollection"))
+{
+	for(int i: inbookRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for inbook:");
+	  for(int in: inbookRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for inbook: info in console" );
+		
+  	}
+ }	
+}
+else if(token.toString().equals("inproceedings"))
+{
+  for(int i: inproceedingsRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for inproceedings:");
+	  for(int in: inproceedingskRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for inproceedings: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("manual"))
+{
+  for(int i: manualRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for manualk:");
+	  for(int in: manualRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for manual: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("masterthesis"))
+{
+	for(int i: masterthesisRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for masterthesis:");
+	  for(int in: masterthesisRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for masterthesis: info in console" );
+		
+  	}
+ }	
+}
+else if(token.toString().equals("phdthesis"))
+{
+	for(int i: phdthesisRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for phdthesis:");
+	  for(int in: phdthesisRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for phdthesis: info in console" );
+		
+  	}
+ }
+}
+else if(token.toString().equals("proceedings"))
+{
+ 	for(int i: proceedingsRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for proceedings:");
+	  for(int in: proceedingsRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for proceedings: info in console" );
+		
+  	}
+ } 
+}
+else if(token.toString().equals("techreprot"))
+{
+ 	for(int i: techreprotRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for techreprot:");
+	  for(int in: techreprotRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for techreprot: info in console" );
+		
+  	}
+ } 
+}
+else if(token.toString().equals("unpublished"))
+{
+  	for(int i: unpublishedRequiredFields)
+  {
+	if(!map.containsKey(names[i]))
+	{
+	  System.out.println("Entry does not have all the required fields for unpublished:");
+	  for(int in: unpublishedRequiredFields)
+		{
+	  		 if(!map.containsKey(names[in]))
+	  		System.out.println(names[in] + " missing.");
+		}
+		throw new Error("Entry does not have all the required fields for unpublished: info in console" );
+		
+  	}
+ }
+}
   
 System.out.println("analizando el :  "+ token.image + " con ID: "+token2.image);
 System.out.println("number of  properties set:  "+ map.size());
+
+
+
 for (int i = 0; i < 1000; i++) {
   if  (map.containsKey(names[i]))
   	System.out.println(names[i] +  "=" + (map.get(names[i])).toString());
   else
     System.out.println(names[i] + ":  No value assigned !!!!" );
 }
+
+
+
 return map;
 
 }

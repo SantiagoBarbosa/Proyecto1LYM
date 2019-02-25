@@ -57,11 +57,17 @@ public interface SimpleConstants {
   /** RegularExpression Id. */
   int ORGA = 27;
   /** RegularExpression Id. */
-  int DIGIT = 28;
+  int BOOKTITLE = 28;
   /** RegularExpression Id. */
-  int INT = 29;
+  int SCHOOL = 29;
   /** RegularExpression Id. */
-  int NAME = 30;
+  int INSTITUTION = 30;
+  /** RegularExpression Id. */
+  int DIGIT = 31;
+  /** RegularExpression Id. */
+  int INT = 32;
+  /** RegularExpression Id. */
+  int NAME = 33;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -96,11 +102,16 @@ public interface SimpleConstants {
     "\"type\"",
     "\"chapter\"",
     "\"organization\"",
+    "\"booktitle\"",
+    "\"school\"",
+    "\"institution\"",
     "<DIGIT>",
     "<INT>",
     "<NAME>",
     "\"={\"",
     "\"}\"",
+    "\"= { \"",
+    "\" }\"",
     "\"{\"",
     "\",\"",
     "\"};\"",
