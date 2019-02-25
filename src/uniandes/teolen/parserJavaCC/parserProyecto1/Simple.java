@@ -22,7 +22,7 @@ int[] manualRequiredFields = { 0};
 int[] masterthesisRequiredFields = { 1,0,22,3};
 int[] phdthesisRequiredFields = {0,1,22,3 };
 int[] proceedingsRequiredFields = { 0,3};
-int[] techReportRequiredFields = { 0,1,23,3};
+int[] techreportRequiredFields = { 0,1,23,3};
 int[] unpublishedRequiredFields = { 0,1,10};
 
 HashMap<String, Object> map = new HashMap<String, Object>();
@@ -312,7 +312,7 @@ else if(token.toString().equals("inproceedings"))
         if(!map.containsKey(names[i]))
         {
           System.out.println("Entry does not have all the required fields for inproceedings:");
-          for(int in: inproceedingskRequiredFields)
+          for(int in: inproceedingsRequiredFields)
                 {
                          if(!map.containsKey(names[in]))
                         System.out.println(names[in] + " missing.");
