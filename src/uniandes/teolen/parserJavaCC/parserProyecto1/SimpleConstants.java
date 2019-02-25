@@ -11,45 +11,57 @@ public interface SimpleConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int BEGIN = 5;
+  int BIBTYPE = 5;
   /** RegularExpression Id. */
-  int ARTICLE = 6;
+  int END = 6;
   /** RegularExpression Id. */
-  int BOOK = 7;
+  int TITLE = 7;
   /** RegularExpression Id. */
-  int BOOKLET = 8;
+  int AUTHOR = 8;
   /** RegularExpression Id. */
-  int CONFERENCE = 9;
+  int JOURNAL = 9;
   /** RegularExpression Id. */
-  int INBOOK = 10;
+  int YEAR = 10;
   /** RegularExpression Id. */
-  int INCOLLECTION = 11;
+  int VOLUME = 11;
   /** RegularExpression Id. */
-  int INPROCEEDINGS = 12;
+  int EDITOR = 12;
   /** RegularExpression Id. */
-  int MANUAL = 13;
+  int NUMBER = 13;
   /** RegularExpression Id. */
-  int MASTERSTHESIS = 14;
+  int PGS = 14;
   /** RegularExpression Id. */
-  int MISC = 15;
+  int MONTH = 15;
   /** RegularExpression Id. */
-  int PHDTHESIS = 16;
+  int DPI = 16;
   /** RegularExpression Id. */
-  int PROCEEDINGS = 17;
+  int NOTE = 17;
   /** RegularExpression Id. */
-  int TECHREPORT = 18;
+  int KEY = 18;
   /** RegularExpression Id. */
-  int UNPUBLISHED = 19;
+  int PUBLISHER = 19;
   /** RegularExpression Id. */
-  int END = 20;
+  int SERIES = 20;
   /** RegularExpression Id. */
-  int DIGIT = 21;
+  int ADDRESS = 21;
   /** RegularExpression Id. */
-  int INT = 22;
+  int EDITION = 22;
   /** RegularExpression Id. */
-  int NAME = 23;
+  int URL = 23;
   /** RegularExpression Id. */
-  int FIELDVALUE = 24;
+  int HPUBLISH = 24;
+  /** RegularExpression Id. */
+  int TYP = 25;
+  /** RegularExpression Id. */
+  int CHAPTER = 26;
+  /** RegularExpression Id. */
+  int ORGA = 27;
+  /** RegularExpression Id. */
+  int DIGIT = 28;
+  /** RegularExpression Id. */
+  int INT = 29;
+  /** RegularExpression Id. */
+  int NAME = 30;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -61,28 +73,37 @@ public interface SimpleConstants {
     "\"\\r\"",
     "\"\\t\"",
     "\"\\n\"",
-    "\"BEGIN\"",
-    "\"article\"",
-    "\"book\"",
-    "\"booklet\"",
-    "\"conference\"",
-    "\"inbook\"",
-    "\"incollection\"",
-    "\"inproceedings\"",
-    "\"manual\"",
-    "\"mastersthesis\"",
-    "\"misc\"",
-    "\"phdthesis\"",
-    "\"proceedings\"",
-    "\"techreport\"",
-    "\"unpublished\"",
+    "<BIBTYPE>",
     "\"END\"",
+    "\"title\"",
+    "\"author\"",
+    "\"journal\"",
+    "\"year\"",
+    "\"volume\"",
+    "\"editor\"",
+    "\"number\"",
+    "\"pages\"",
+    "\"month\"",
+    "\"doi\"",
+    "\"note\"",
+    "\"key\"",
+    "\"publisher\"",
+    "\"series\"",
+    "\"address\"",
+    "\"edition\"",
+    "\"url\"",
+    "\"howPublished\"",
+    "\"type\"",
+    "\"chapter\"",
+    "\"organization\"",
     "<DIGIT>",
     "<INT>",
     "<NAME>",
-    "<FIELDVALUE>",
-    "\"=\"",
-    "\";\"",
+    "\"={\"",
+    "\"}\"",
+    "\"{\"",
+    "\",\"",
+    "\"};\"",
   };
 
 }

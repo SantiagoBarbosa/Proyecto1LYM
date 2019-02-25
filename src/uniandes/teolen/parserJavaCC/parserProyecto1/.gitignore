@@ -1,3 +1,7 @@
 /Simple.java
 /SimpleConstants.java
 /SimpleTokenManager.java
+/ParseException.java
+/SimpleCharStream.java
+/Token.java
+/TokenMgrError.java

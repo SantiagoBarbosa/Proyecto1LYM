@@ -8,128 +8,170 @@ public class Simple implements SimpleConstants {
 
 
 
-String []  names = { "article", "book", "booklet", "conference","inbook","incollection", "inproceedings",
- "manual", "mastersthesis","misc", "phdthesis","proceedings","techreport","unpublished"  };
+String []  names = { "title", "author", "journal", "year","volume","editor", "number",
+ "pages", "month","doi", "note","key","publisher","series","address", "edition", "url","howPublished", "type", "chapter", "organization"  };
 
 HashMap<String, Object> map = new HashMap<String, Object>();
 
+  final public void exp() throws ParseException, Error {
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case TITLE:
+      jj_consume_token(TITLE);
+      jj_consume_token(31);
+      value(names[0]);
+      jj_consume_token(32);
+      break;
+    case JOURNAL:
+      jj_consume_token(JOURNAL);
+      jj_consume_token(31);
+      value(names[2]);
+      jj_consume_token(32);
+      break;
+    case AUTHOR:
+      jj_consume_token(AUTHOR);
+      jj_consume_token(31);
+      value(names[1]);
+      jj_consume_token(32);
+      break;
+    case YEAR:
+      jj_consume_token(YEAR);
+      jj_consume_token(31);
+      value(names[3]);
+      jj_consume_token(32);
+      break;
+    case VOLUME:
+      jj_consume_token(VOLUME);
+      jj_consume_token(31);
+      value(names[4]);
+      jj_consume_token(32);
+      break;
+    case EDITOR:
+      jj_consume_token(EDITOR);
+      jj_consume_token(31);
+      value(names[5]);
+      jj_consume_token(32);
+      break;
+    case NUMBER:
+      jj_consume_token(NUMBER);
+      jj_consume_token(31);
+      value(names[6]);
+      jj_consume_token(32);
+      break;
+    case PGS:
+      jj_consume_token(PGS);
+      jj_consume_token(31);
+      value(names[7]);
+      jj_consume_token(32);
+      break;
+    case MONTH:
+      jj_consume_token(MONTH);
+      jj_consume_token(31);
+      value(names[8]);
+      jj_consume_token(32);
+      break;
+    case DPI:
+      jj_consume_token(DPI);
+      jj_consume_token(31);
+      value(names[9]);
+      jj_consume_token(32);
+      break;
+    case NOTE:
+      jj_consume_token(NOTE);
+      jj_consume_token(31);
+      value(names[10]);
+      jj_consume_token(32);
+      break;
+    case KEY:
+      jj_consume_token(KEY);
+      jj_consume_token(31);
+      value(names[11]);
+      jj_consume_token(32);
+      break;
+    case PUBLISHER:
+      jj_consume_token(PUBLISHER);
+      jj_consume_token(31);
+      value(names[12]);
+      jj_consume_token(32);
+      break;
+    case SERIES:
+      jj_consume_token(SERIES);
+      jj_consume_token(31);
+      value(names[13]);
+      jj_consume_token(32);
+      break;
+    case ADDRESS:
+      jj_consume_token(ADDRESS);
+      jj_consume_token(31);
+      value(names[14]);
+      jj_consume_token(32);
+      break;
+    case EDITION:
+      jj_consume_token(EDITION);
+      jj_consume_token(31);
+      value(names[15]);
+      jj_consume_token(32);
+      break;
+    case URL:
+      jj_consume_token(URL);
+      jj_consume_token(31);
+      value(names[16]);
+      jj_consume_token(32);
+      break;
+    case HPUBLISH:
+      jj_consume_token(HPUBLISH);
+      jj_consume_token(31);
+      value(names[17]);
+      jj_consume_token(32);
+      break;
+    case TYP:
+      jj_consume_token(TYP);
+      jj_consume_token(31);
+      value(names[18]);
+      jj_consume_token(32);
+      break;
+    case CHAPTER:
+      jj_consume_token(CHAPTER);
+      jj_consume_token(31);
+      value(names[19]);
+      jj_consume_token(32);
+      break;
+    case ORGA:
+      jj_consume_token(ORGA);
+      jj_consume_token(31);
+      value(names[20]);
+      jj_consume_token(32);
+      break;
+    default:
+      jj_la1[0] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
+  }
+
   final public HashMap<String, Object> simple() throws ParseException, Error {
-    jj_consume_token(BEGIN);
+  Token token;
+  Token token2;
+    token = jj_consume_token(BIBTYPE);
+    jj_consume_token(33);
+    token2 = jj_consume_token(NAME);
+    jj_consume_token(34);
+    exp();
     label_1:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case ARTICLE:
-      case BOOK:
-      case BOOKLET:
-      case CONFERENCE:
-      case INBOOK:
-      case INCOLLECTION:
-      case INPROCEEDINGS:
-      case MANUAL:
-      case MASTERSTHESIS:
-      case MISC:
-      case PHDTHESIS:
-      case PROCEEDINGS:
-      case TECHREPORT:
-      case UNPUBLISHED:
+      case 34:
         ;
         break;
       default:
-        jj_la1[0] = jj_gen;
+        jj_la1[1] = jj_gen;
         break label_1;
       }
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case ARTICLE:
-        jj_consume_token(ARTICLE);
-        jj_consume_token(25);
-        value(names[0]);
-        jj_consume_token(26);
-        break;
-      case BOOK:
-        jj_consume_token(BOOK);
-        jj_consume_token(25);
-        value(names[1]);
-        jj_consume_token(26);
-        break;
-      case BOOKLET:
-        jj_consume_token(BOOKLET);
-        jj_consume_token(25);
-        value(names[2]);
-        jj_consume_token(26);
-        break;
-      case CONFERENCE:
-        jj_consume_token(CONFERENCE);
-        jj_consume_token(25);
-        value(names[3]);
-        jj_consume_token(26);
-        break;
-      case INBOOK:
-        jj_consume_token(INBOOK);
-        jj_consume_token(25);
-        value(names[4]);
-        jj_consume_token(26);
-        break;
-      case INCOLLECTION:
-        jj_consume_token(INCOLLECTION);
-        jj_consume_token(25);
-        value(names[5]);
-        jj_consume_token(26);
-        break;
-      case INPROCEEDINGS:
-        jj_consume_token(INPROCEEDINGS);
-        jj_consume_token(25);
-        value(names[6]);
-        jj_consume_token(26);
-        break;
-      case MANUAL:
-        jj_consume_token(MANUAL);
-        jj_consume_token(25);
-        value(names[7]);
-        jj_consume_token(26);
-        break;
-      case MASTERSTHESIS:
-        jj_consume_token(MASTERSTHESIS);
-        jj_consume_token(25);
-        value(names[8]);
-        jj_consume_token(26);
-        break;
-      case MISC:
-        jj_consume_token(MISC);
-        jj_consume_token(25);
-        value(names[9]);
-        jj_consume_token(26);
-        break;
-      case PHDTHESIS:
-        jj_consume_token(PHDTHESIS);
-        jj_consume_token(25);
-        value(names[10]);
-        jj_consume_token(26);
-        break;
-      case PROCEEDINGS:
-        jj_consume_token(PROCEEDINGS);
-        jj_consume_token(25);
-        value(names[11]);
-        jj_consume_token(26);
-        break;
-      case TECHREPORT:
-        jj_consume_token(TECHREPORT);
-        jj_consume_token(25);
-        value(names[12]);
-        jj_consume_token(26);
-        break;
-      case UNPUBLISHED:
-        jj_consume_token(UNPUBLISHED);
-        jj_consume_token(25);
-        value(names[13]);
-        jj_consume_token(26);
-        break;
-      default:
-        jj_la1[1] = jj_gen;
-        jj_consume_token(-1);
-        throw new ParseException();
-      }
+      jj_consume_token(34);
+      exp();
     }
+    jj_consume_token(35);
     jj_consume_token(END);
+System.out.println("analizando el :  "+ token.image + " con ID: "+token2.image);
 System.out.println("number of  properties set:  "+ map.size());
 for (int i = 0; i < 1000; i++) {
   if  (map.containsKey(names[i]))
@@ -164,10 +206,6 @@ for (int i = 0; i < 1000; i++) {
       token = jj_consume_token(NAME);
       map.put(name,new String(token.image));
       break;
-    case FIELDVALUE:
-      token = jj_consume_token(FIELDVALUE);
-    map.put(name, new String (token.image));
-      break;
     default:
       jj_la1[2] = jj_gen;
       jj_consume_token(-1);
@@ -186,11 +224,16 @@ for (int i = 0; i < 1000; i++) {
   private int jj_gen;
   final private int[] jj_la1 = new int[3];
   static private int[] jj_la1_0;
+  static private int[] jj_la1_1;
   static {
       jj_la1_init_0();
+      jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0xfffc0,0xfffc0,0x1c00000,};
+      jj_la1_0 = new int[] {0xfffff80,0x0,0x60000000,};
+   }
+   private static void jj_la1_init_1() {
+      jj_la1_1 = new int[] {0x0,0x4,0x0,};
    }
 
   /** Constructor with InputStream. */
@@ -307,7 +350,7 @@ for (int i = 0; i < 1000; i++) {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[27];
+    boolean[] la1tokens = new boolean[36];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -318,10 +361,13 @@ for (int i = 0; i < 1000; i++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
             la1tokens[j] = true;
           }
+          if ((jj_la1_1[i] & (1<<j)) != 0) {
+            la1tokens[32+j] = true;
+          }
         }
       }
     }
-    for (int i = 0; i < 27; i++) {
+    for (int i = 0; i < 36; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

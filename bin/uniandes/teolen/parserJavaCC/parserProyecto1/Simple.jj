@@ -20,8 +20,8 @@ public class Simple {
 
 
 
-String []  names = { "article", "book", "booklet", "conference","inbook","incollection", "inproceedings",
- "manual", "mastersthesis","misc", "phdthesis","proceedings","techreport","unpublished"  };
+String []  names = { "title", "author", "journal", "year","volume","editor", "number",
+ "pages", "month","doi", "note","key","publisher","series","address", "edition", "url","howPublished", "type", "chapter", "organization"  };
 
 HashMap<String, Object> map = new HashMap<String, Object>();
 
@@ -36,56 +36,77 @@ SKIP :
 }
 TOKEN : /* OPERATORS */
 {
-    <BEGIN: "BEGIN">
-  | < ARTICLE: "article" >
-  | < BOOK: "book" >
-  | < BOOKLET: "booklet" >
-  | < CONFERENCE: "conference" >
-  | < INBOOK: "inbook">
-  | < INCOLLECTION:"incollection">
-| < INPROCEEDINGS: "inproceedings">
-| < MANUAL: "manual">
-| < MASTERSTHESIS: "mastersthesis">
-| < MISC:"misc" >
-| < PHDTHESIS: "phdthesis">
-| < PROCEEDINGS:"proceedings">
-| < TECHREPORT:"techreport">
-| < UNPUBLISHED: "unpublished">
+   < BIBTYPE : "article"
+  | "book" 
+  | "booklet" 
+  | "conference" 
+  | "inbook"
+  | "incollection"
+  | "inproceedings"
+  |  "manual"
+  |"mastersthesis"
+  |"misc" 
+|"phdthesis"
+|"proceedings"
+| "techreport"
+| "unpublished">
  |    <END: "END">
+ | < TITLE:("title")>
+ | < AUTHOR:("author")>
+ | < JOURNAL:("journal") >
+ |< YEAR:  ("year") >
+ |< VOLUME:("volume") >
+ |< EDITOR:("editor") >
+ | < NUMBER:( "number") >
+ | < PGS:("pages") > |< MONTH:("month") >|< DPI:("doi") >|< NOTE: ("note") >|< KEY:("key") >
+ |< PUBLISHER:("publisher") >|< SERIES:("series") >|< ADDRESS:("address") >
+ |< EDITION:(  "edition") >|< URL:( "url") >|< HPUBLISH:("howPublished") >
+ |< TYP: ("type") >|< CHAPTER:  ("chapter") >|< ORGA:( "organization") >
 	|  < #DIGIT: "0" | "1" | "2"| "3" | "4" | "5" |  "6" | "7" | "8" |"9" >
 	|   < INT: ( <DIGIT> )( <DIGIT> )* >
 	|   < NAME: ["a"-"z"] (["a"-"z"] | <DIGIT> )* >
-   | <FIELDVALUE :  "{"(~["\n","\t"])+ "}"  >
+   
+   
 }
-
-
+void exp() throws Error:
+{
+}
+{
+< TITLE > "={" value(names[0])"}"  
+| < JOURNAL > "={"value(names[2])"}"
+| < AUTHOR > "={"value(names[1])"}"
+| < YEAR > "={"value(names[3])"}"
+| < VOLUME > "={"value(names[4])"}"
+| < EDITOR > "={"value(names[5])"}"
+| < NUMBER > "={"value(names[6])"}"
+| < PGS >"={"value(names[7])"}"
+|< MONTH >"={"value(names[8])"}"
+|< DPI >"={"value(names[9])"}"
+| < NOTE >"={"value(names[10])"}"
+|< KEY >"={"value(names[11])"}"
+|< PUBLISHER >"={"value(names[12])"}"
+|< SERIES >"={"value(names[13])"}"
+|< ADDRESS >"={"value(names[14])"}"
+| < EDITION >"={"value(names[15])"}"
+ |< URL >"={"value(names[16])"}" |< HPUBLISH >"={"value(names[17])"}" |< TYP > "={"value(names[18])"}"| < CHAPTER >"={"value(names[19])"}" |< ORGA >"={"value(names[20])"}" 
+  
+}
 
 HashMap<String, Object> simple()  throws  Error:
 {
-
-}
+  Token token;
+  Token token2;
+  }
+ 
 {
+ token=< BIBTYPE >"{"token2 = < NAME>","   
+(exp() ("," exp())*)  "};" < END >
 
-
- < BEGIN >
-(  < ARTICLE > "=" value(names[0])  ";"
-| < BOOK > "=" value(names[1]) ";"
-| < BOOKLET > "=" value(names[2]) ";"
-| < CONFERENCE > "=" value(names[3]) ";"
-| < INBOOK> "=" value(names[4])";"
-| < INCOLLECTION> "=" value(names[5])";"
-| < INPROCEEDINGS> "=" value(names[6])";"
-| < MANUAL> "=" value(names[7])";"
-| < MASTERSTHESIS> "=" value(names[8])";"
-| < MISC> "=" value(names[9])";"
-| < PHDTHESIS> "=" value(names[10])";"
-| < PROCEEDINGS> "=" value(names[11])";"
-| < TECHREPORT> "=" value(names[12])";"
-| < UNPUBLISHED> "=" value(names[13])";"
-)*
- < END >
-
+ 
+   
 {
+  
+System.out.println("analizando el :  "+ token.image + " con ID: "+token2.image);
 System.out.println("number of  properties set:  "+ map.size());
 for (int i = 0; i < 1000; i++) {
   if  (map.containsKey(names[i]))
@@ -128,10 +149,7 @@ void value(String name) throws Error:
 | 
     token=<NAME>
     { map.put(name,new String(token.image));}
-  | token = < FIELDVALUE>
-  {
-    map.put(name, new String (token.image));
-  }
+  
 )   
      
 }

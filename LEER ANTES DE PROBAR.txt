@@ -1,0 +1,4 @@
+Se debe probar el parser de la siguiente manera
+ejemplos 
+book{id12,title={un titulo},autor={un autor}};END
+article{id13,author={un autor},title={un titulo},publisher={el publicador}};END
